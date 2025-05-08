@@ -1,0 +1,8 @@
+# Add your Python dependencies here
+celery
+python-fasthtml
+uvicorn[standard]
+nbformat
+redis 
+firejail
+ruff

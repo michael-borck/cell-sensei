@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CellSensei Feedback Report",
+  "type": "object",
+  "required": ["submission", "static_analysis", "test_results", "summary"],
+  "properties": {
+    "submission": {
+      "type": "object",
+      "required": ["filename", "submitted_at", "task_id"],
+      "properties": {
+        "filename": { "type": "string" },
+        "submitted_at": { "type": "string", "format": "date-time" },
+        "task_id": { "type": "string" }
+      }
+    },
+    "static_analysis": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "message"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["error", "warning", "info"]
+          },
+          "message": { "type": "string" },
+          "hint": { "type": "string" }
+        }
+      }
+    },
+    "test_results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["function", "status", "message"],
+        "properties": {
+          "function": { "type": "string" },
+          "status": {
+            "type": "string",
+            "enum": ["pass", "fail", "error", "skipped"]
+          },
+          "message": { "type": "string" },
+          "details": { "type": "string" }
+        }
+      }
+    },
+    "sandbox_status": {
+      "type": "object",
+      "required": ["execution_safe", "runtime"],
+      "properties": {
+        "execution_safe": { "type": "boolean" },
+        "firejail_profile": { "type": "string" },
+        "runtime": { "type": "string" }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "required": ["errors", "warnings", "tests_passed", "tests_failed"],
+      "properties": {
+        "errors": { "type": "integer", "minimum": 0 },
+        "warnings": { "type": "integer", "minimum": 0 },
+        "tests_passed": { "type": "integer", "minimum": 0 },
+        "tests_failed": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}
+

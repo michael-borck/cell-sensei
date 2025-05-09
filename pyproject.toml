@@ -9,7 +9,10 @@ dependencies = [
     "python-fasthtml",
     "uvicorn[standard]",
     "nbformat",
-    # Celery and Redis/broker will be added later
+    "ruff",
+    "mypy",
+    "pytest",
+    # "celery[redis]", # Add when you reach that milestone
 ]
 requires-python = ">=3.9" # Choose your minimum Python version
 

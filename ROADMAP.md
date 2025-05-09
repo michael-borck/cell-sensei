@@ -27,7 +27,7 @@ This document outlines the planned development phases and milestones for the Cel
 - **Technologies:** FastHTML, Uvicorn, `nbformat`, `ast`, (chosen linter/formatter tools e.g., Ruff).
 - **Focus:** Core web interface, static analysis pipeline, synchronous feedback loop.
 
-### Milestone 2: Function Extraction & Test Harness Execution (Still Synchronous, UnsANDBOXED - Primarily for Logic Validation) (Target: +2-3 weeks)
+### Milestone 2: Function Extraction & Test Harness Execution (Still Synchronous, UnSANDBOXED - Primarily for Logic Validation) (Target: +2-3 weeks)
 - **Goal:** Implement the logic to extract the five core student functions and test them using a predefined test harness. *This milestone focuses on validating the grading logic; execution is still synchronous and unsandboxed.*
 - **Key Features:**
     - `notebook_parser.py`: Module to extract the source code of the 5 predefined core functions from the uploaded notebook.

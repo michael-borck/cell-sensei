@@ -4,5 +4,4 @@ python-fasthtml
 uvicorn[standard]
 nbformat
 redis 
-firejail
 ruff

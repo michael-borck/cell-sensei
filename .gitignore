@@ -136,3 +136,4 @@ temp_chroots/ # If you ever create these directly
 
 # Temporary file for project
 _notes
+.sesskey

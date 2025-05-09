@@ -1,5 +1,5 @@
 from fasthtml.common import *
-from web_ui.routes import rt # Import the router instance
+# Import only the init_routes function, not rt which doesn't exist
 
 # Initialize the FastHTML application
 # The `rt` object is typically created by `fast_app()` and then routes are defined on it.
@@ -31,6 +31,7 @@ init_routes(app) # Pass the app instance to initialize routes
 
 # Placeholder for where the uploaded file will be temporarily stored
 # In a real app, this needs to be more robust, secure, and cleaned up.
+from pathlib import Path
 UPLOAD_DIR = Path("./temp_uploads")
 UPLOAD_DIR.mkdir(exist_ok=True)
 

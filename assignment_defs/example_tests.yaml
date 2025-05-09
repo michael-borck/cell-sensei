@@ -1,0 +1,87 @@
+---
+# Example test configuration for function testing
+
+# Assignment information
+assignment_id: "example_assignment"
+name: "Example Assignment - Function Tests"
+description: "This configuration defines tests for the example assignment functions."
+
+# Functions to test with their test cases
+functions:
+  - name: "calculate_average"
+    description: "Calculates the average of a list of numbers"
+    tests:
+      - test_id: "basic_avg"
+        description: "Basic average calculation"
+        inputs: [1, 2, 3, 4, 5]
+        expected: 3.0
+        points: 2
+      - test_id: "empty_list"
+        description: "Handle empty list correctly"
+        inputs: []
+        expected: 0
+        points: 1
+      - test_id: "negative_numbers"
+        description: "Calculate average with negative numbers"
+        inputs: [-1, -2, -3, -4, -5]
+        expected: -3.0
+        points: 1
+    pytest_file: "test_calculate_average.py"  # Optional pytest file for more complex tests
+    
+  - name: "is_palindrome"
+    description: "Checks if a string is a palindrome"
+    tests:
+      - test_id: "simple_palindrome"
+        description: "Simple palindrome test"
+        inputs: "racecar"
+        expected: true
+        points: 1
+      - test_id: "non_palindrome"
+        description: "Test with non-palindrome"
+        inputs: "hello"
+        expected: false
+        points: 1
+      - test_id: "case_sensitivity"
+        description: "Case insensitivity test"
+        inputs: "Racecar"
+        expected: true
+        points: 1
+      - test_id: "spaces_and_punctuation"
+        description: "Handle spaces and punctuation"
+        inputs: "A man, a plan, a canal: Panama"
+        expected: true
+        points: 2
+    pytest_file: "test_palindrome.py"
+    
+  - name: "fibonacci"
+    description: "Returns the nth Fibonacci number"
+    tests:
+      - test_id: "fib_zero"
+        description: "Fibonacci of 0"
+        inputs: 0
+        expected: 0
+        points: 1
+      - test_id: "fib_one"
+        description: "Fibonacci of 1"
+        inputs: 1
+        expected: 1
+        points: 1
+      - test_id: "fib_small"
+        description: "Small Fibonacci number"
+        inputs: 7
+        expected: 13
+        points: 1
+      - test_id: "fib_large"
+        description: "Larger Fibonacci number (performance)"
+        inputs: 20
+        expected: 6765
+        points: 2
+    time_limit: 1.0  # Optional time limit in seconds for performance testing
+    pytest_file: "test_fibonacci.py"
+
+# Global settings
+settings:
+  show_expected_values: false  # Whether to show expected values to students
+  strict_type_checking: true   # Whether to enforce exact type matches
+  max_execution_time: 5.0      # Global time limit for all function tests
+  show_test_descriptions: true # Show test descriptions to students
